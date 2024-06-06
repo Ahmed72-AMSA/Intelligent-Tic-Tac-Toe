@@ -1,0 +1,793 @@
+[
+    {
+        "label": "tkinter",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "messagebox",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "messagebox",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "messagebox",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "messagebox",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "messagebox",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "messagebox",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "messagebox",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "messagebox",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "timeit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "timeit",
+        "description": "timeit",
+        "detail": "timeit",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "deque",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "product",
+        "importPath": "itertools",
+        "description": "itertools",
+        "isExtraImport": true,
+        "detail": "itertools",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToe",
+        "kind": 6,
+        "importPath": "alpha-beta",
+        "description": "alpha-beta",
+        "peekOfCode": "class TicTacToe:\n    def __init__(self):\n        self.board = [[' ' for _ in range(3)] for _ in range(3)]\n    def display_board(self):\n        for row in self.board:\n            print(\"|\".join(row))\n            print(\"-----\")\n    def check_win(self, player):\n        for i in range(3):\n            if self.board[i][0] == self.board[i][1] == self.board[i][2] == player:",
+        "detail": "alpha-beta",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToeAI",
+        "kind": 6,
+        "importPath": "alpha-beta",
+        "description": "alpha-beta",
+        "peekOfCode": "class TicTacToeAI(TicTacToe):\n    def __init__(self):\n        super().__init__()\n    def ai_make_move(self):\n        best_score = -float('inf')\n        best_move = None\n        for i in range(3):\n            for j in range(3):\n                if self.board[i][j] == ' ':\n                    self.board[i][j] = 'O'",
+        "detail": "alpha-beta",
+        "documentation": {}
+    },
+    {
+        "label": "LevelSelection",
+        "kind": 6,
+        "importPath": "alpha-beta",
+        "description": "alpha-beta",
+        "peekOfCode": "class LevelSelection:\n    def __init__(self):\n        self.window = tk.Tk()\n        self.window.title(\"Tic Tac Toe - Level Selection\")\n        self.window.geometry(\"300x150\")  # Set the window size (width x height)\n        self.label = tk.Label(self.window, text=\"Choose the level:\")\n        self.label.pack()\n        self.button_user_first = tk.Button(self.window, text=\"User First\", command=self.user_first)\n        self.button_user_first.pack(pady=5)  # Add vertical space between buttons\n        self.button_ai_first = tk.Button(self.window, text=\"AI First\", command=self.ai_first)",
+        "detail": "alpha-beta",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToeGUI",
+        "kind": 6,
+        "importPath": "alpha-beta",
+        "description": "alpha-beta",
+        "peekOfCode": "class TicTacToeGUI:\n    def __init__(self, level):\n        self.game = TicTacToeAI()\n        self.window = tk.Tk()\n        self.window.title(\"Tic Tac Toe\")\n        self.buttons = [[None, None, None] for _ in range(3)]\n        self.create_grid_buttons()\n        self.current_player = 'X' if level == 1 else 'O'\n        self.game_over = False\n        if self.current_player == 'O':  # AI's turn",
+        "detail": "alpha-beta",
+        "documentation": {}
+    },
+    {
+        "label": "level_selector",
+        "kind": 5,
+        "importPath": "alpha-beta",
+        "description": "alpha-beta",
+        "peekOfCode": "level_selector = LevelSelection()\nlevel_selector.run()\n# Start the Tic Tac Toe game with the selected level\nchosen_level = level_selector.level\nif chosen_level is not None:\n    tictactoe_gui = TicTacToeGUI(chosen_level)\n    tictactoe_gui.run()",
+        "detail": "alpha-beta",
+        "documentation": {}
+    },
+    {
+        "label": "chosen_level",
+        "kind": 5,
+        "importPath": "alpha-beta",
+        "description": "alpha-beta",
+        "peekOfCode": "chosen_level = level_selector.level\nif chosen_level is not None:\n    tictactoe_gui = TicTacToeGUI(chosen_level)\n    tictactoe_gui.run()",
+        "detail": "alpha-beta",
+        "documentation": {}
+    },
+    {
+        "label": "check_winner",
+        "kind": 2,
+        "importPath": "best-first",
+        "description": "best-first",
+        "peekOfCode": "def check_winner(board):\n    # Check rows, columns, and diagonals\n    for i in range(3):\n        if board[i][0] == board[i][1] == board[i][2] != \"\":\n            return board[i][0]  # Row win\n        if board[0][i] == board[1][i] == board[2][i] != \"\":\n            return board[0][i]  # Column win\n    if board[0][0] == board[1][1] == board[2][2] != \"\":\n        return board[0][0]  # Diagonal win\n    if board[0][2] == board[1][1] == board[2][0] != \"\":",
+        "detail": "best-first",
+        "documentation": {}
+    },
+    {
+        "label": "is_board_full",
+        "kind": 2,
+        "importPath": "best-first",
+        "description": "best-first",
+        "peekOfCode": "def is_board_full(board):\n    for row in board:\n        if \"\" in row:\n            return False\n    return True\n# Function to perform the player's move\ndef player_move(row, col):\n    global player_turn, board\n    if board[row][col] == \"\" and not game_over:\n        labels[row][col].config(text=\"X\", fg=\"red\")",
+        "detail": "best-first",
+        "documentation": {}
+    },
+    {
+        "label": "player_move",
+        "kind": 2,
+        "importPath": "best-first",
+        "description": "best-first",
+        "peekOfCode": "def player_move(row, col):\n    global player_turn, board\n    if board[row][col] == \"\" and not game_over:\n        labels[row][col].config(text=\"X\", fg=\"red\")\n        board[row][col] = \"X\"\n        winner = check_winner(board)\n        if winner:\n            messagebox.showinfo(\"Tic Tac Toe\", f\"Player {winner} wins!\")\n            reset_game()\n        elif is_board_full(board):",
+        "detail": "best-first",
+        "documentation": {}
+    },
+    {
+        "label": "reset_game",
+        "kind": 2,
+        "importPath": "best-first",
+        "description": "best-first",
+        "peekOfCode": "def reset_game():\n    global player_turn, board, game_over\n    player_turn = True\n    game_over = False\n    board = [[\"\" for _ in range(3)] for _ in range(3)]\n    for row in labels:\n        for label in row:\n            label.config(text=\"\", state=tk.NORMAL)\n    # Ask the player who starts the game\n    result = messagebox.askquestion(\"Tic Tac Toe\", \"Do you want to start the game?\")",
+        "detail": "best-first",
+        "documentation": {}
+    },
+    {
+        "label": "ai_move",
+        "kind": 2,
+        "importPath": "best-first",
+        "description": "best-first",
+        "peekOfCode": "def ai_move():\n    global player_turn, board, game_over\n    for i in range(0, 3):\n        for j in range(0, 3):\n            if board[i][j] != \"\":\n                global count\n                count += 1\n    if not any((cell != \"\" for row in board for cell in row) or (count == 1)):\n        # AI's first move strategy\n        first_move_strategy = random.choice([\"random\", \"center\"])",
+        "detail": "best-first",
+        "documentation": {}
+    },
+    {
+        "label": "best_first_search",
+        "kind": 2,
+        "importPath": "best-first",
+        "description": "best-first",
+        "peekOfCode": "def best_first_search(board):\n    empty_cells = [(i, j) for i in range(3) for j in range(3) if board[i][j] == \"\"]\n    random.shuffle(empty_cells)  # Shuffle for randomness\n    for cell in empty_cells:\n        if is_winning_move(board, \"O\", cell):\n            return float(\"inf\"), cell\n        elif is_winning_move(board, \"X\", cell):\n            return float(\"-inf\"), cell\n    return 0, None  # No winning move found\ndef is_winning_move(board, player, move):",
+        "detail": "best-first",
+        "documentation": {}
+    },
+    {
+        "label": "is_winning_move",
+        "kind": 2,
+        "importPath": "best-first",
+        "description": "best-first",
+        "peekOfCode": "def is_winning_move(board, player, move):\n    board_copy = [row[:] for row in board]\n    board_copy[move[0]][move[1]] = player\n    return check_winner(board_copy) == player\n# Create the main window\nroot = tk.Tk()\nroot.title(\"Tic Tac Toe\")\nroot.configure(bg=\"black\")\n# Initialize game variables\nplayer_turn = True",
+        "detail": "best-first",
+        "documentation": {}
+    },
+    {
+        "label": "count",
+        "kind": 5,
+        "importPath": "best-first",
+        "description": "best-first",
+        "peekOfCode": "count = 0  # adding count\n# Function to perform the AI's move\ndef ai_move():\n    global player_turn, board, game_over\n    for i in range(0, 3):\n        for j in range(0, 3):\n            if board[i][j] != \"\":\n                global count\n                count += 1\n    if not any((cell != \"\" for row in board for cell in row) or (count == 1)):",
+        "detail": "best-first",
+        "documentation": {}
+    },
+    {
+        "label": "root",
+        "kind": 5,
+        "importPath": "best-first",
+        "description": "best-first",
+        "peekOfCode": "root = tk.Tk()\nroot.title(\"Tic Tac Toe\")\nroot.configure(bg=\"black\")\n# Initialize game variables\nplayer_turn = True\ngame_over = False\nboard = [[\"\" for _ in range(3)] for _ in range(3)]\n# Create labels for the Tic Tac Toe grid\nlabels = [[None, None, None] for _ in range(3)]\nfor i in range(3):",
+        "detail": "best-first",
+        "documentation": {}
+    },
+    {
+        "label": "player_turn",
+        "kind": 5,
+        "importPath": "best-first",
+        "description": "best-first",
+        "peekOfCode": "player_turn = True\ngame_over = False\nboard = [[\"\" for _ in range(3)] for _ in range(3)]\n# Create labels for the Tic Tac Toe grid\nlabels = [[None, None, None] for _ in range(3)]\nfor i in range(3):\n    for j in range(3):\n        labels[i][j] = tk.Label(root, text=\"\", font=(\"Helvetica\", 16), width=8, height=4, relief=tk.RIDGE,\n                                borderwidth=2, padx=2, pady=2, bg=\"black\", fg=\"white\")\n        labels[i][j].grid(row=i, column=j, padx=0, pady=0)",
+        "detail": "best-first",
+        "documentation": {}
+    },
+    {
+        "label": "game_over",
+        "kind": 5,
+        "importPath": "best-first",
+        "description": "best-first",
+        "peekOfCode": "game_over = False\nboard = [[\"\" for _ in range(3)] for _ in range(3)]\n# Create labels for the Tic Tac Toe grid\nlabels = [[None, None, None] for _ in range(3)]\nfor i in range(3):\n    for j in range(3):\n        labels[i][j] = tk.Label(root, text=\"\", font=(\"Helvetica\", 16), width=8, height=4, relief=tk.RIDGE,\n                                borderwidth=2, padx=2, pady=2, bg=\"black\", fg=\"white\")\n        labels[i][j].grid(row=i, column=j, padx=0, pady=0)\n        # Bind the click event to each label",
+        "detail": "best-first",
+        "documentation": {}
+    },
+    {
+        "label": "board",
+        "kind": 5,
+        "importPath": "best-first",
+        "description": "best-first",
+        "peekOfCode": "board = [[\"\" for _ in range(3)] for _ in range(3)]\n# Create labels for the Tic Tac Toe grid\nlabels = [[None, None, None] for _ in range(3)]\nfor i in range(3):\n    for j in range(3):\n        labels[i][j] = tk.Label(root, text=\"\", font=(\"Helvetica\", 16), width=8, height=4, relief=tk.RIDGE,\n                                borderwidth=2, padx=2, pady=2, bg=\"black\", fg=\"white\")\n        labels[i][j].grid(row=i, column=j, padx=0, pady=0)\n        # Bind the click event to each label\n        labels[i][j].bind(\"<Button-1>\", lambda event, row=i, col=j: player_move(row, col))",
+        "detail": "best-first",
+        "documentation": {}
+    },
+    {
+        "label": "labels",
+        "kind": 5,
+        "importPath": "best-first",
+        "description": "best-first",
+        "peekOfCode": "labels = [[None, None, None] for _ in range(3)]\nfor i in range(3):\n    for j in range(3):\n        labels[i][j] = tk.Label(root, text=\"\", font=(\"Helvetica\", 16), width=8, height=4, relief=tk.RIDGE,\n                                borderwidth=2, padx=2, pady=2, bg=\"black\", fg=\"white\")\n        labels[i][j].grid(row=i, column=j, padx=0, pady=0)\n        # Bind the click event to each label\n        labels[i][j].bind(\"<Button-1>\", lambda event, row=i, col=j: player_move(row, col))\n# Create a Reset button\nreset_button = tk.Button(root, text=\"Reset\", font=(\"Helvetica\", 16), width=8, height=2, command=reset_game, bg=\"yellow\")",
+        "detail": "best-first",
+        "documentation": {}
+    },
+    {
+        "label": "reset_button",
+        "kind": 5,
+        "importPath": "best-first",
+        "description": "best-first",
+        "peekOfCode": "reset_button = tk.Button(root, text=\"Reset\", font=(\"Helvetica\", 16), width=8, height=2, command=reset_game, bg=\"yellow\")\nreset_button.grid(row=3, columnspan=3)\n# Ask the player who starts the game\nresult = messagebox.askquestion(\"Tic Tac Toe\", \"Do you want to start first?\")\nif result == 'no':\n    player_turn = False\n    ai_move()\n# Run the GUI main loop\nroot.mainloop()",
+        "detail": "best-first",
+        "documentation": {}
+    },
+    {
+        "label": "result",
+        "kind": 5,
+        "importPath": "best-first",
+        "description": "best-first",
+        "peekOfCode": "result = messagebox.askquestion(\"Tic Tac Toe\", \"Do you want to start first?\")\nif result == 'no':\n    player_turn = False\n    ai_move()\n# Run the GUI main loop\nroot.mainloop()",
+        "detail": "best-first",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToe",
+        "kind": 6,
+        "importPath": "heuristic_red",
+        "description": "heuristic_red",
+        "peekOfCode": "class TicTacToe:\n    def __init__(self):\n        self.board = [[' ' for _ in range(3)] for _ in range(3)]\n    def display_board(self):\n        for row in self.board:\n            print(\"|\".join(row))\n            print(\"0-----\")\n    def check_win(self, player):\n        for i in range(3):\n            if self.board[i][0] == self.board[i][1] == self.board[i][2] == player:",
+        "detail": "heuristic_red",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToeAI",
+        "kind": 6,
+        "importPath": "heuristic_red",
+        "description": "heuristic_red",
+        "peekOfCode": "class TicTacToeAI(TicTacToe):\n    def __init__(self):\n        super().__init__()\n    def ai_make_move(self):\n        best_score = -float('inf')\n        best_move = None\n        # Implement iterative deepening and alpha-beta pruning\n        for depth in range(1, 5):  # Adjust the maximum depth as needed\n            score, move = self.alpha_beta_search(depth)\n            if score > best_score:",
+        "detail": "heuristic_red",
+        "documentation": {}
+    },
+    {
+        "label": "LevelSelection",
+        "kind": 6,
+        "importPath": "heuristic_red",
+        "description": "heuristic_red",
+        "peekOfCode": "class LevelSelection:\n    def __init__(self):\n        self.window = tk.Tk()\n        self.window.title(\"Tic Tac Toe - Level Selection\")\n        self.window.geometry(\"300x150\")  # Set the window size (width x height)\n        self.label = tk.Label(self.window, text=\"Choose the level:\")\n        self.label.pack()\n        self.button_user_first = tk.Button(self.window, text=\"User First\", command=self.user_first)\n        self.button_user_first.pack(pady=5)  # Add vertical space between buttons\n        self.button_ai_first = tk.Button(self.window, text=\"AI First\", command=self.ai_first)",
+        "detail": "heuristic_red",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToeGUI",
+        "kind": 6,
+        "importPath": "heuristic_red",
+        "description": "heuristic_red",
+        "peekOfCode": "class TicTacToeGUI:\n    def __init__(self, level):\n        self.game = TicTacToeAI()\n        self.window = tk.Tk()\n        self.window.title(\"Tic Tac Toe\")\n        self.buttons = [[None, None, None] for _ in range(3)]\n        self.create_grid_buttons()\n        self.current_player = 'X' if level == 1 else 'O'\n        self.game_over = False\n        if self.current_player == 'O':  # AI's turn",
+        "detail": "heuristic_red",
+        "documentation": {}
+    },
+    {
+        "label": "level_selector",
+        "kind": 5,
+        "importPath": "heuristic_red",
+        "description": "heuristic_red",
+        "peekOfCode": "level_selector = LevelSelection()\nlevel_selector.run()\n# Start the Tic Tac Toe game with the selected level\nchosen_level = level_selector.level\nif chosen_level is not None:\n    tictactoe_gui = TicTacToeGUI(chosen_level)\n    tictactoe_gui.run()",
+        "detail": "heuristic_red",
+        "documentation": {}
+    },
+    {
+        "label": "chosen_level",
+        "kind": 5,
+        "importPath": "heuristic_red",
+        "description": "heuristic_red",
+        "peekOfCode": "chosen_level = level_selector.level\nif chosen_level is not None:\n    tictactoe_gui = TicTacToeGUI(chosen_level)\n    tictactoe_gui.run()",
+        "detail": "heuristic_red",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToe",
+        "kind": 6,
+        "importPath": "minmax",
+        "description": "minmax",
+        "peekOfCode": "class TicTacToe:\n    def __init__(self):\n        self.board = [[' ' for _ in range(3)] for _ in range(3)]\n    def display_board(self):\n        for row in self.board:\n            print(\"|\".join(row))\n            print(\"-----\")\n    def check_win(self, player):\n        for i in range(3):\n            if self.board[i][0] == self.board[i][1] == self.board[i][2] == player:",
+        "detail": "minmax",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToeAI",
+        "kind": 6,
+        "importPath": "minmax",
+        "description": "minmax",
+        "peekOfCode": "class TicTacToeAI(TicTacToe):\n    def __init__(self):\n        super().__init__()\n        self.first_move = True\n    def ai_make_move(self):\n        if self.first_move:  \n            row, col = random.choice([(0, 0), (0, 2), (1, 1), (2, 0), (2, 2)])\n            self.mark_board(row, col, 'O')\n            self.first_move = False  \n            return row, col",
+        "detail": "minmax",
+        "documentation": {}
+    },
+    {
+        "label": "LevelSelection",
+        "kind": 6,
+        "importPath": "minmax",
+        "description": "minmax",
+        "peekOfCode": "class LevelSelection:\n    def __init__(self):\n        self.window = tk.Tk()\n        self.window.title(\"Tic Tac Toe - Level Selection\")\n        self.window.geometry(\"300x150\")  \n        self.label = tk.Label(self.window, text=\"Choose the level:\")\n        self.label.pack()\n        self.button_user_first = tk.Button(self.window, text=\"User First\", command=self.user_first)\n        self.button_user_first.pack(pady=5)  # Add vertical space between buttons\n        self.button_ai_first = tk.Button(self.window, text=\"AI First\", command=self.ai_first)",
+        "detail": "minmax",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToeGUI",
+        "kind": 6,
+        "importPath": "minmax",
+        "description": "minmax",
+        "peekOfCode": "class TicTacToeGUI:\n    def __init__(self, level):\n        self.game = TicTacToeAI()\n        self.window = tk.Tk()\n        self.window.title(\"Tic Tac Toe\")\n        self.buttons = [[None, None, None] for _ in range(3)]\n        self.create_grid_buttons()\n        self.current_player = 'X' if level == 1 else 'O'\n        self.game_over = False\n        if self.current_player == 'O':  # AI's turn",
+        "detail": "minmax",
+        "documentation": {}
+    },
+    {
+        "label": "start_time",
+        "kind": 5,
+        "importPath": "minmax",
+        "description": "minmax",
+        "peekOfCode": "start_time = time.time()\nclass TicTacToe:\n    def __init__(self):\n        self.board = [[' ' for _ in range(3)] for _ in range(3)]\n    def display_board(self):\n        for row in self.board:\n            print(\"|\".join(row))\n            print(\"-----\")\n    def check_win(self, player):\n        for i in range(3):",
+        "detail": "minmax",
+        "documentation": {}
+    },
+    {
+        "label": "level_selector",
+        "kind": 5,
+        "importPath": "minmax",
+        "description": "minmax",
+        "peekOfCode": "level_selector = LevelSelection()\nlevel_selector.run()\n# Start the Tic Tac Toe game with the selected level\nchosen_level = level_selector.level\nif chosen_level is not None:\n    tictactoe_gui = TicTacToeGUI(chosen_level)\n    tictactoe_gui.run()",
+        "detail": "minmax",
+        "documentation": {}
+    },
+    {
+        "label": "chosen_level",
+        "kind": 5,
+        "importPath": "minmax",
+        "description": "minmax",
+        "peekOfCode": "chosen_level = level_selector.level\nif chosen_level is not None:\n    tictactoe_gui = TicTacToeGUI(chosen_level)\n    tictactoe_gui.run()",
+        "detail": "minmax",
+        "documentation": {}
+    },
+    {
+        "label": "check_winner",
+        "kind": 2,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "def check_winner(board, player):\n    win_combinations = [\n        [board[0], board[1], board[2]],\n        [board[3], board[4], board[5]],\n        [board[6], board[7], board[8]],\n        [board[0], board[3], board[6]],\n        [board[1], board[4], board[7]],\n        [board[2], board[5], board[8]],\n        [board[0], board[4], board[8]],\n        [board[2], board[4], board[6]],",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "is_board_full",
+        "kind": 2,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "def is_board_full(board):\n    return board.count(\"\") == 0\n# Minimax algorithm\ndef minimax(board, depth, maximizing_player):\n    if check_winner(board, \"O\"):\n        return 1\n    elif check_winner(board, \"X\"):\n        return -1\n    elif is_board_full(board):\n        return 0",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "minimax",
+        "kind": 2,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "def minimax(board, depth, maximizing_player):\n    if check_winner(board, \"O\"):\n        return 1\n    elif check_winner(board, \"X\"):\n        return -1\n    elif is_board_full(board):\n        return 0\n    if maximizing_player:\n        max_eval = float(\"-inf\")\n        for i in range(9):",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "available_moves",
+        "kind": 2,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "def available_moves(board):\n    return [i for i in range(9) if board[i] == \"\"]\n# Breadth-first search for Tic Tac Toe\ndef bfs_tic_tac_toe(board):\n    queue = deque([(board, 0)])\n    while queue:\n        board, depth = queue.popleft()\n        # Check for terminal states\n        if check_winner(board, \"O\"):\n            return 1",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "bfs_tic_tac_toe",
+        "kind": 2,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "def bfs_tic_tac_toe(board):\n    queue = deque([(board, 0)])\n    while queue:\n        board, depth = queue.popleft()\n        # Check for terminal states\n        if check_winner(board, \"O\"):\n            return 1\n        elif check_winner(board, \"X\"):\n            return -1\n        elif is_board_full(board):",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "ai_move_with_bfs",
+        "kind": 2,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "def ai_move_with_bfs(board):\n    best_move = -1\n    best_eval = float(\"-inf\")\n    for i in range(9):\n        if board[i] == \"\":\n            board[i] = \"O\"\n            eval = minimax(board, 0, False)\n            board[i] = \"\"\n            if eval > best_eval:\n                best_eval = eval",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "player_move",
+        "kind": 2,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "def player_move(board, position):\n    if board[position] == \"\":\n        board[position] = \"X\"\n        buttons[position].config(text=\"X\")\n        if check_winner(board, \"X\"):\n            messagebox.showinfo(\"Tic Tac Toe\", \"You win!\")\n            reset_board()\n        elif is_board_full(board):\n            messagebox.showinfo(\"Tic Tac Toe\", \"It's a tie!\")\n            reset_board()",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "reset_board",
+        "kind": 2,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "def reset_board():\n    for button in buttons:\n        button.config(text=\"\")\n    global board\n    board = [\"\"] * 9\n# Initialize the board\nboard = [\"\"] * 9\n# Create GUI\nroot = tk.Tk()\nroot.title(\"Tic Tac Toe\")",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "disable_buttons",
+        "kind": 2,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "def disable_buttons():\n    for button in buttons:\n        button.config(state=tk.DISABLED)\ndef enable_buttons():\n    for button in buttons:\n        button.config(state=tk.NORMAL)\ndef reset_game():\n    reset_board()\n    enable_buttons()\n    for button in buttons:",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "enable_buttons",
+        "kind": 2,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "def enable_buttons():\n    for button in buttons:\n        button.config(state=tk.NORMAL)\ndef reset_game():\n    reset_board()\n    enable_buttons()\n    for button in buttons:\n        button.config(text=\"\")\ndef handle_game_result(result):\n    if result == \"X\":",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "reset_game",
+        "kind": 2,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "def reset_game():\n    reset_board()\n    enable_buttons()\n    for button in buttons:\n        button.config(text=\"\")\ndef handle_game_result(result):\n    if result == \"X\":\n        messagebox.showinfo(\"Tic Tac Toe\", \"You win!\")\n    elif result == \"O\":\n        messagebox.showinfo(\"Tic Tac Toe\", \"You lose!\")",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "handle_game_result",
+        "kind": 2,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "def handle_game_result(result):\n    if result == \"X\":\n        messagebox.showinfo(\"Tic Tac Toe\", \"You win!\")\n    elif result == \"O\":\n        messagebox.showinfo(\"Tic Tac Toe\", \"You lose!\")\n    elif result == \"Tie\":\n        messagebox.showinfo(\"Tic Tac Toe\", \"It's a tie!\")\ndef check_game_state():\n    if check_winner(board, \"X\"):\n        handle_game_result(\"X\")",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "check_game_state",
+        "kind": 2,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "def check_game_state():\n    if check_winner(board, \"X\"):\n        handle_game_result(\"X\")\n        disable_buttons()\n    elif check_winner(board, \"O\"):\n        handle_game_result(\"O\")\n        disable_buttons()\n    elif is_board_full(board):\n        handle_game_result(\"Tie\")\n        disable_buttons()",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "start_time",
+        "kind": 5,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "start_time = time.time()\n# Function to check for winning combinations\ndef check_winner(board, player):\n    win_combinations = [\n        [board[0], board[1], board[2]],\n        [board[3], board[4], board[5]],\n        [board[6], board[7], board[8]],\n        [board[0], board[3], board[6]],\n        [board[1], board[4], board[7]],\n        [board[2], board[5], board[8]],",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "board",
+        "kind": 5,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "board = [\"\"] * 9\n# Create GUI\nroot = tk.Tk()\nroot.title(\"Tic Tac Toe\")\n# Style for buttons\nbutton_style = {\n    'font': ('Arial', 20),\n    'width': 4,\n    'height': 2,\n    'bd': 2,",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "root",
+        "kind": 5,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "root = tk.Tk()\nroot.title(\"Tic Tac Toe\")\n# Style for buttons\nbutton_style = {\n    'font': ('Arial', 20),\n    'width': 4,\n    'height': 2,\n    'bd': 2,\n}\nbuttons = []",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "button_style",
+        "kind": 5,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "button_style = {\n    'font': ('Arial', 20),\n    'width': 4,\n    'height': 2,\n    'bd': 2,\n}\nbuttons = []\nfor i in range(9):\n    button = tk.Button(root, text=\"\", **button_style, command=lambda pos=i: player_move(board, pos))\n    button.grid(row=i // 3, column=i % 3, padx=5, pady=5)",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "buttons",
+        "kind": 5,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "buttons = []\nfor i in range(9):\n    button = tk.Button(root, text=\"\", **button_style, command=lambda pos=i: player_move(board, pos))\n    button.grid(row=i // 3, column=i % 3, padx=5, pady=5)\n    buttons.append(button)\ndef disable_buttons():\n    for button in buttons:\n        button.config(state=tk.DISABLED)\ndef enable_buttons():\n    for button in buttons:",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "end_time",
+        "kind": 5,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "end_time = time.time()\nelapsed_time = end_time - start_time\nprint(f\"Elapsed time: {elapsed_time} seconds\")",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "elapsed_time",
+        "kind": 5,
+        "importPath": "minmax_bfs",
+        "description": "minmax_bfs",
+        "peekOfCode": "elapsed_time = end_time - start_time\nprint(f\"Elapsed time: {elapsed_time} seconds\")",
+        "detail": "minmax_bfs",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToe",
+        "kind": 6,
+        "importPath": "minmax_hill_climb",
+        "description": "minmax_hill_climb",
+        "peekOfCode": "class TicTacToe:\n    def __init__(self):\n        self.board = [[' ' for _ in range(3)] for _ in range(3)]\n    def check_win(self, player):\n        for i in range(3):\n            if self.board[i][0] == self.board[i][1] == self.board[i][2] == player:\n                return True\n            if self.board[0][i] == self.board[1][i] == self.board[2][i] == player:\n                return True\n        if self.board[0][0] == self.board[1][1] == self.board[2][2] == player:",
+        "detail": "minmax_hill_climb",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToeAI",
+        "kind": 6,
+        "importPath": "minmax_hill_climb",
+        "description": "minmax_hill_climb",
+        "peekOfCode": "class TicTacToeAI(TicTacToe):\n    def __init__(self):\n        super().__init__()\n        self.evaluation_params = [1, 1, 1]  # Initial evaluation function parameters\n    def ai_make_move(self):\n        # Check for immediate win\n        for i in range(3):\n            for j in range(3):\n                if self.board[i][j] == ' ':\n                    self.board[i][j] = 'O'",
+        "detail": "minmax_hill_climb",
+        "documentation": {}
+    },
+    {
+        "label": "LevelSelection",
+        "kind": 6,
+        "importPath": "minmax_hill_climb",
+        "description": "minmax_hill_climb",
+        "peekOfCode": "class LevelSelection:\n    def __init__(self):\n        self.window = tk.Tk()\n        self.window.title(\"Tic Tac Toe - Level Selection\")\n        self.window.geometry(\"300x150\")  # Set the window size (width x height)\n        self.label = tk.Label(self.window, text=\"Choose the level:\")\n        self.label.pack(pady=5)\n        self.button_user_first = tk.Button(self.window, text=\"User First\", command=self.user_first)\n        self.button_user_first.pack(pady=5)\n        self.button_ai_first = tk.Button(self.window, text=\"AI First\", command=self.ai_first)",
+        "detail": "minmax_hill_climb",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToeGUI",
+        "kind": 6,
+        "importPath": "minmax_hill_climb",
+        "description": "minmax_hill_climb",
+        "peekOfCode": "class TicTacToeGUI:\n    def __init__(self, level):\n        self.game = TicTacToeAI()\n        self.window = tk.Tk()\n        self.window.title(\"Tic Tac Toe\")\n        self.buttons = [[None, None, None] for _ in range(3)]\n        self.create_grid_buttons()\n        self.current_player = 'X' if level == 2 else 'O'  # Set the current player based on the level\n        self.game_over = False\n        if self.current_player == 'O':  # Computer's turn",
+        "detail": "minmax_hill_climb",
+        "documentation": {}
+    },
+    {
+        "label": "start_time",
+        "kind": 5,
+        "importPath": "minmax_hill_climb",
+        "description": "minmax_hill_climb",
+        "peekOfCode": "start_time = time.time()\nclass TicTacToe:\n    def __init__(self):\n        self.board = [[' ' for _ in range(3)] for _ in range(3)]\n    def check_win(self, player):\n        for i in range(3):\n            if self.board[i][0] == self.board[i][1] == self.board[i][2] == player:\n                return True\n            if self.board[0][i] == self.board[1][i] == self.board[2][i] == player:\n                return True",
+        "detail": "minmax_hill_climb",
+        "documentation": {}
+    },
+    {
+        "label": "level_selector",
+        "kind": 5,
+        "importPath": "minmax_hill_climb",
+        "description": "minmax_hill_climb",
+        "peekOfCode": "level_selector = LevelSelection()\nlevel_selector.run()\n# Start the Tic Tac Toe game with the selected level\nchosen_level = level_selector.level\nif chosen_level is not None:\n    tictactoe_gui = TicTacToeGUI(chosen_level)\n    tictactoe_gui.game.hill_climbing()  # Run hill climbing to optimize parameters\n    tictactoe_gui.run()\nend_time = time.time()\nelapsed_time = end_time - start_time",
+        "detail": "minmax_hill_climb",
+        "documentation": {}
+    },
+    {
+        "label": "chosen_level",
+        "kind": 5,
+        "importPath": "minmax_hill_climb",
+        "description": "minmax_hill_climb",
+        "peekOfCode": "chosen_level = level_selector.level\nif chosen_level is not None:\n    tictactoe_gui = TicTacToeGUI(chosen_level)\n    tictactoe_gui.game.hill_climbing()  # Run hill climbing to optimize parameters\n    tictactoe_gui.run()\nend_time = time.time()\nelapsed_time = end_time - start_time\nprint(f\"Elapsed time: {elapsed_time} seconds\")",
+        "detail": "minmax_hill_climb",
+        "documentation": {}
+    },
+    {
+        "label": "end_time",
+        "kind": 5,
+        "importPath": "minmax_hill_climb",
+        "description": "minmax_hill_climb",
+        "peekOfCode": "end_time = time.time()\nelapsed_time = end_time - start_time\nprint(f\"Elapsed time: {elapsed_time} seconds\")",
+        "detail": "minmax_hill_climb",
+        "documentation": {}
+    },
+    {
+        "label": "elapsed_time",
+        "kind": 5,
+        "importPath": "minmax_hill_climb",
+        "description": "minmax_hill_climb",
+        "peekOfCode": "elapsed_time = end_time - start_time\nprint(f\"Elapsed time: {elapsed_time} seconds\")",
+        "detail": "minmax_hill_climb",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToe",
+        "kind": 6,
+        "importPath": "symmetric_red",
+        "description": "symmetric_red",
+        "peekOfCode": "class TicTacToe:\n    def __init__(self):\n        self.board = [[' ' for _ in range(3)] for _ in range(3)]\n    def display_board(self):\n        for row in self.board:\n            print(\"|\".join(row))\n            print(\"-----\")\n    def check_win(self, player):\n        for i in range(3):\n            if self.board[i][0] == self.board[i][1] == self.board[i][2] == player:",
+        "detail": "symmetric_red",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToeAI",
+        "kind": 6,
+        "importPath": "symmetric_red",
+        "description": "symmetric_red",
+        "peekOfCode": "class TicTacToeAI(TicTacToe):\n    def __init__(self):\n        super().__init__()\n    def ai_make_move(self):\n        best_score = -float('inf')\n        best_move = None\n        for i in range(3):\n            for j in range(3):\n                if self.board[i][j] == ' ':\n                    self.board[i][j] = 'O'",
+        "detail": "symmetric_red",
+        "documentation": {}
+    },
+    {
+        "label": "LevelSelection",
+        "kind": 6,
+        "importPath": "symmetric_red",
+        "description": "symmetric_red",
+        "peekOfCode": "class LevelSelection:\n    def __init__(self):\n        self.window = tk.Tk()\n        self.window.title(\"Tic Tac Toe - Level Selection\")\n        self.window.geometry(\"300x150\")  # Set the window size (width x height)\n        self.label = tk.Label(self.window, text=\"Choose the level:\")\n        self.label.pack()\n        self.button_user_first = tk.Button(self.window, text=\"User First\", command=self.user_first)\n        self.button_user_first.pack(pady=5)  # Add vertical space between buttons\n        self.button_ai_first = tk.Button(self.window, text=\"AI First\", command=self.ai_first)",
+        "detail": "symmetric_red",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToeGUI",
+        "kind": 6,
+        "importPath": "symmetric_red",
+        "description": "symmetric_red",
+        "peekOfCode": "class TicTacToeGUI:\n    def __init__(self, level):\n        self.game = TicTacToeAI()\n        self.window = tk.Tk()\n        self.window.title(\"Tic Tac Toe\")\n        self.buttons = [[None, None, None] for _ in range(3)]\n        self.create_grid_buttons()\n        self.current_player = 'X' if level == 1 else 'O'\n        self.game_over = False\n        if self.current_player == 'O':  # AI's turn",
+        "detail": "symmetric_red",
+        "documentation": {}
+    },
+    {
+        "label": "level_selector",
+        "kind": 5,
+        "importPath": "symmetric_red",
+        "description": "symmetric_red",
+        "peekOfCode": "level_selector = LevelSelection()\nlevel_selector.run()\nchosen_level = level_selector.level\nif chosen_level is not None:\n    tictactoe_gui = TicTacToeGUI(chosen_level)\n    tictactoe_gui.run()",
+        "detail": "symmetric_red",
+        "documentation": {}
+    },
+    {
+        "label": "chosen_level",
+        "kind": 5,
+        "importPath": "symmetric_red",
+        "description": "symmetric_red",
+        "peekOfCode": "chosen_level = level_selector.level\nif chosen_level is not None:\n    tictactoe_gui = TicTacToeGUI(chosen_level)\n    tictactoe_gui.run()",
+        "detail": "symmetric_red",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToe",
+        "kind": 6,
+        "importPath": "test2",
+        "description": "test2",
+        "peekOfCode": "class TicTacToe:\n    def __init__(self):\n        self.board = [[' ' for _ in range(3)] for _ in range(3)]\n    def display_board(self):\n        for row in self.board:\n            print(\"|\".join(row))\n            print(\"-----\")\n    def check_win(self, player):\n        for i in range(3):\n            if self.board[i][0] == self.board[i][1] == self.board[i][2] == player:",
+        "detail": "test2",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToeAI",
+        "kind": 6,
+        "importPath": "test2",
+        "description": "test2",
+        "peekOfCode": "class TicTacToeAI(TicTacToe):\n    def __init__(self):\n        super().__init__()\n    def ai_make_move(self):\n        weighted_values = [\n            [3, 2, 3],\n            [2, 4, 2],\n            [3, 2, 3]\n        ]\n        best_score = -float('inf')",
+        "detail": "test2",
+        "documentation": {}
+    },
+    {
+        "label": "LevelSelection",
+        "kind": 6,
+        "importPath": "test2",
+        "description": "test2",
+        "peekOfCode": "class LevelSelection:\n    def __init__(self):\n        self.window = tk.Tk()\n        self.window.title(\"Tic Tac Toe - Level Selection\")\n        self.window.geometry(\"300x150\")  # Set the window size (width x height)\n        self.label = tk.Label(self.window, text=\"Choose the level:\")\n        self.label.pack()\n        self.button_user_first = tk.Button(self.window, text=\"User First\", command=self.user_first)\n        self.button_user_first.pack(pady=5)  # Add vertical space between buttons\n        self.button_ai_first = tk.Button(self.window, text=\"AI First\", command=self.ai_first)",
+        "detail": "test2",
+        "documentation": {}
+    },
+    {
+        "label": "TicTacToeGUI",
+        "kind": 6,
+        "importPath": "test2",
+        "description": "test2",
+        "peekOfCode": "class TicTacToeGUI:\n    def __init__(self, level):\n        self.game = TicTacToeAI()\n        self.window = tk.Tk()\n        self.window.title(\"Tic Tac Toe\")\n        self.buttons = [[None, None, None] for _ in range(3)]\n        self.create_grid_buttons()\n        self.current_player = 'X' if level == 1 else 'O'\n        self.game_over = False\n        if self.current_player == 'O':  # AI's turn",
+        "detail": "test2",
+        "documentation": {}
+    },
+    {
+        "label": "level_selector",
+        "kind": 5,
+        "importPath": "test2",
+        "description": "test2",
+        "peekOfCode": "level_selector = LevelSelection()\nlevel_selector.run()\n# Start the Tic Tac Toe game with the selected level\nchosen_level = level_selector.level\nif chosen_level is not None:\n    tictactoe_gui = TicTacToeGUI(chosen_level)\n    tictactoe_gui.run()",
+        "detail": "test2",
+        "documentation": {}
+    },
+    {
+        "label": "chosen_level",
+        "kind": 5,
+        "importPath": "test2",
+        "description": "test2",
+        "peekOfCode": "chosen_level = level_selector.level\nif chosen_level is not None:\n    tictactoe_gui = TicTacToeGUI(chosen_level)\n    tictactoe_gui.run()",
+        "detail": "test2",
+        "documentation": {}
+    }
+]

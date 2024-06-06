@@ -1,0 +1,9 @@
+This project is an Artificial intelligence project for tic-tac-toe game (Player vs AI Agent) using following algorithms:- 
+1- MinMax Algorithm.
+2- MinMax Algorithm with alpha-beta burning.
+3- MinMax with breadth first search Algorithm.
+4- MinMax with hill climbing Algorithm.
+5- Symmetric Reduction Algorithm.
+6- best-first Algorithm.
+7- heuristic reduction Algorithm.
+8- symmetric reduction reduction Algorithm.
